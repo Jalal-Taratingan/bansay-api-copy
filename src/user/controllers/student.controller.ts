@@ -12,7 +12,7 @@ export class StudentController {
 
     @Post()
     create(@Body() student: StudentRegistrationDto){
-        this.service.create(student)
+        return this.service.create(student)
     }
 
     @Get()
@@ -20,18 +20,18 @@ export class StudentController {
         type: [StudentDto]
     })
 
-    findAll():StudentDto[] {
+    findAll() {
         return this.service.findAll()
     }
 
     @Patch(':id/:field')
     patchStudent(@Param('id') id: string, @Body() patchDto:StudentPatchDto){
-        this.service.patch(id, patchDto.field, patchDto.value);
+        return this.service.patch(id, patchDto.field, patchDto.value);
     }
 
     @Delete(':id')
     deleteStudent(@Param('id') id: string){
-        this.service.delete(id);
+        return this.service.delete(id);
     }
 
 }

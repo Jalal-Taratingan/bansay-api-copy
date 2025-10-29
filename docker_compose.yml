@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+ postgres:
+   image: postgres:13
+   container_name: bansay_postgres_db
+   ports:
+     - '5433:5432'
+   environment:
+     POSTGRES_DB: bansay_db
+     POSTGRES_USER: user
+     POSTGRES_PASSWORD: password
+   volumes:
+     - postgres_data:/var/lib/postgresql/data
+volumes:
+ postgres_data:
